@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat_Robot</title>
+	<link href="https://fast.fonts.net/cssapi/be94fae5-9b1f-4aec-bf00-f63c1bf01302.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="ChatRobot.css">
+	<link rel="stylesheet" href="animate.css">
+	
+</head>
+<body>
+<div class="body-background"  id="app">
+<br/>
+	<div class="body-container">
+		<div style="max-width: 150px;margin: auto">
+			<img src="./bot.png" style="width:100%;">
+		</div>
+		<div class="chat" ref="scroll">
+			<div class="all-msg-wrap" id="container">
+				<template v-for="chat in chats">
+						<div class="msg-wrap">
+								<div class="msg animated bounceInUp" :class="{'right': chat.by != 'robot'}">{{chat.msg}}</div><br/>
+							</div>
+				</template>
+			</div>
+		</div>
+		<div class="input">
+			<form id="submitForm" @submit="submitForm">
+				<input type="text" v-model="userInput" name="text" placeholder="Enter your chat here, press Enter to send!" autocomplete="off">
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="Chatbot-vue.js"></script>
+</html>
